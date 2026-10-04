@@ -89,6 +89,14 @@ function applyLang(lang) {
     if (url) el.setAttribute("href", url);
   }
 
+  // Screenshots follow the language too — a Russian visitor should see
+  // the Russian app. Both sets are cropped to the same shape, so the
+  // swap cannot shift the layout.
+  for (const img of document.querySelectorAll("[data-src-ru]")) {
+    const src = lang === "ru" ? img.dataset.srcRu : img.dataset.srcEn;
+    if (src && img.getAttribute("src") !== src) img.setAttribute("src", src);
+  }
+
   for (const btn of document.querySelectorAll(".lang__btn")) {
     btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
   }

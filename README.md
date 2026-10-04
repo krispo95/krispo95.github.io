@@ -36,6 +36,8 @@ works without JavaScript.
 - Instagram: `krispo_moments` (EN) / `life_of_krispo` (RU)
 - App Store: `?pt=129030541&ct=inst_header_en&mt=8` / `…_ru&mt=8`
 
+The phone screenshots switch too, through `data-src-en` / `data-src-ru`.
+
 `pt` is the provider token for the App Store Connect account (the same one owns
 both apps); `ct` is the campaign token that separates the two audiences in App
 Analytics. The links carry no country code, so Apple sends each visitor to
@@ -49,9 +51,18 @@ and in both dictionaries in `app.js`. Change a string in **both** places —
 
 ## Screenshots
 
-Taken from the App Store screenshot folders of each app and resized to 440px wide
-WebP. To refresh them, drop new PNGs in and re-export at the same width so the
-phone frames keep their proportions.
+Two per app per language, in `assets/<app>-<n>.<lang>.webp`, taken from the
+App Store screenshot folders of each app (`.../screenshots/en|ru/`) and showing
+the same two screens in both languages.
+
+Each one is resized to 440px wide and **cropped to 700px tall**. Only the top of
+a screenshot is ever on screen — the card clips the rest — and the widest layout
+shows about 580 source pixels, so 700 leaves room to spare. The uniform height
+matters: it gives every image the same aspect ratio, so switching language
+cannot reflow the card.
+
+To refresh them, re-export at 440x700 from the top, or the phone frames will
+change shape.
 
 ## Local preview
 
