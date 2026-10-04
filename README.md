@@ -122,6 +122,21 @@ cannot reflow the card.
 To refresh them, re-export at 440x700 from the top, or the phone frames will
 change shape.
 
+## Cache: bump `?v=` when you change CSS or JS
+
+GitHub Pages serves everything with `Cache-Control: max-age=600`, the HTML
+included. For ten minutes after a deploy a returning visitor keeps the old
+copy — and can end up with new HTML against a stale `app.js`, which breaks in
+confusing ways rather than just looking out of date.
+
+So `index.html` links `styles.css?v=N` and `app.js?v=N`. **Raise N whenever you
+change either file.** A new query string is a new URL, so the moment the HTML
+refreshes it pulls the matching assets instead of the cached ones.
+
+If a change does not show up on the live page, that is this cache, not a broken
+deploy. Confirm with `curl https://krispo95.github.io/app.js | grep ...` — if
+the server has it, just wait, or hard-reload.
+
 ## Local preview
 
 ```bash
