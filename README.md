@@ -20,7 +20,7 @@ JavaScript off. They appear **twice** — once in the hero, once in the "Let's
 connect" block — so change both:
 
 - Instagram — `https://www.instagram.com/krispo_moments`
-- TikTok — `https://www.tiktok.com/@TIKTOK_HANDLE`
+- TikTok — `https://www.tiktok.com/@krispo_moments` (one account, both languages)
 - GitHub — `https://github.com/krispo95`
 - Email — `mailto:krispo.dev@gmail.com`
 - Formora — App Store id `6781046163`
