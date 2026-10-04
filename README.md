@@ -69,10 +69,13 @@ wide layout flips it with `order`, so there is one piece of markup, not two.
 ## The portrait
 
 `assets/kristina.webp` is a 400x400 square crop of a phone photo, shown through
-an organic blob `border-radius` that slowly morphs. The crop is deliberately
-head-and-shoulders: at 118px anything wider turns the face into nothing. The
-photo's own background is warm cream, which is why it sits on the page without
-a ring or a border.
+an asymmetric `border-radius` blob that morphs slowly between two states. The
+shape is done with `border-radius` and not `clip-path` on purpose: a clip would
+cut away the white mat and the shadow with it, and these values can animate.
+
+The crop sits right of the face's centre — further left and a cold window frame
+comes into the picture and fights the warm page. It is head-and-shoulders
+because at 132px anything wider loses the face.
 
 To swap it, crop square around the face, export at 400px, keep the filename.
 

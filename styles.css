@@ -185,20 +185,20 @@ main {
 .hero { padding: 26px 0 4px; text-align: center; }
 
 .avatar {
-  width: 118px;
-  height: 118px;
+  width: 132px;
+  height: 132px;
   margin: 0 auto;
   overflow: hidden;
   background: var(--bg-2);
-  border-radius: 56% 44% 47% 53% / 46% 52% 48% 54%;
+  border-radius: 64% 36% 50% 50% / 56% 40% 60% 44%;
   box-shadow: 0 0 0 7px rgba(255, 255, 255, .6), var(--shadow-md);
   animation: morph 14s ease-in-out infinite;
 }
 .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 @keyframes morph {
-  0%, 100% { border-radius: 56% 44% 47% 53% / 46% 52% 48% 54%; }
-  50%      { border-radius: 44% 56% 54% 46% / 55% 45% 55% 45%; }
+  0%, 100% { border-radius: 64% 36% 50% 50% / 56% 40% 60% 44%; }
+  50%      { border-radius: 56% 44% 58% 42% / 48% 54% 46% 52%; }
 }
 
 .note {
