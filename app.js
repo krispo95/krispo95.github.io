@@ -16,7 +16,7 @@ const STRINGS = {
     "formora.sub": "A smart body tracker",
     "formora.note": "The scale isn't the whole story",
     "formora.text": "I made it for women first. As a woman I know how much the body can change over a month, and how much it matters to take that into account — so as not to be upset by every new number on the scale.",
-    "formora.text2": "You can track weight and measurements, keep progress photos and compare shots from different periods easily. And it helps you notice changes the scale does not always show: the weight barely moves while the volumes go down. Useful for men too — the menstrual cycle feature can simply be left off.",
+    "formora.text2": "You can track weight and measurements, keep progress photos and compare shots from different periods easily. And it helps you notice changes the scale does not always show: the weight barely moves while the volumes go down. Useful for men too — you can just leave the menstrual cycle feature off.",
     "formora.legalAria": "Formora — privacy policy and terms",
     "medistory.sub": "Everything you need to tell the doctor",
     "medistory.note": "And remember to ask",
