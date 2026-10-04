@@ -80,6 +80,15 @@ function applyLang(lang) {
     const value = dict[el.dataset.i18nLabel];
     if (value != null) el.setAttribute("aria-label", value);
   }
+  // Instagram and the App Store links differ per language: a separate
+  // account, and a ct= campaign token so App Store Connect can tell the
+  // two audiences apart. The English URL stays in href so the links
+  // still work with JavaScript off.
+  for (const el of document.querySelectorAll("[data-href-ru]")) {
+    const url = lang === "ru" ? el.dataset.hrefRu : el.dataset.hrefEn;
+    if (url) el.setAttribute("href", url);
+  }
+
   for (const btn of document.querySelectorAll(".lang__btn")) {
     btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
   }

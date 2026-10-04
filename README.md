@@ -19,14 +19,26 @@ The outbound links are plain `href`s in `index.html` so they keep working with
 JavaScript off. They appear **twice** — once in the hero, once in the "Let's
 connect" block — so change both:
 
-- Instagram — `https://www.instagram.com/INSTAGRAM_HANDLE`
+- Instagram — `https://www.instagram.com/krispo_moments`
 - TikTok — `https://www.tiktok.com/@TIKTOK_HANDLE`
 - GitHub — `https://github.com/krispo95`
 - Email — `mailto:krispo.dev@gmail.com`
-- Formora — `https://apps.apple.com/app/id6781046163`
-- Medistory — `MEDISTORY_APPSTORE_URL`
+- Formora — App Store id `6781046163`
+- Medistory — App Store id `6797866671`
 
-App Store links are deliberately country-less; Apple redirects each visitor to
+### Links that change with the language
+
+Instagram and the two App Store buttons point somewhere different in Russian.
+Those anchors carry `data-href-en` and `data-href-ru`; `app.js` swaps `href`
+when the language changes, and `href` itself holds the English URL so it still
+works without JavaScript.
+
+- Instagram: `krispo_moments` (EN) / `life_of_krispo` (RU)
+- App Store: `?pt=129030541&ct=inst_header_en&mt=8` / `…_ru&mt=8`
+
+`pt` is the provider token for the App Store Connect account (the same one owns
+both apps); `ct` is the campaign token that separates the two audiences in App
+Analytics. The links carry no country code, so Apple sends each visitor to
 their own storefront.
 
 ## Editing the copy
