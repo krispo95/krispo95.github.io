@@ -11,7 +11,7 @@ Pages from `main` at the repository root.
 | `index.html` | The whole page. English is the source language. |
 | `styles.css` | Design tokens at the top; mobile-first, dark mode via `prefers-color-scheme`. |
 | `app.js` | EN/RU switch. Russian strings live in `STRINGS.ru`; the choice is kept in `localStorage`. |
-| `assets/` | App icons, screenshots (WebP), favicon, Open Graph card. |
+| `assets/` | Portrait, app icons, screenshots (WebP), favicon, Open Graph card. |
 
 ## Editing the links
 
@@ -48,6 +48,16 @@ their own storefront.
 Every translatable string sits in `index.html` with a `data-i18n="key"` attribute
 and in both dictionaries in `app.js`. Change a string in **both** places —
 `index.html` is what a visitor without JavaScript sees.
+
+## The portrait
+
+`assets/kristina.webp` is a 400x400 square crop of a phone photo, shown through
+an organic blob `border-radius` that slowly morphs. The crop is deliberately
+head-and-shoulders: at 118px anything wider turns the face into nothing. The
+photo's own background is warm cream, which is why it sits on the page without
+a ring or a border.
+
+To swap it, crop square around the face, export at 400px, keep the filename.
 
 ## Screenshots
 
