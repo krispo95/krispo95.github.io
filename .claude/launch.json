@@ -4,8 +4,8 @@
     {
       "name": "site",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4178", "--bind", "127.0.0.1", "--directory", "/Users/kristinastupnikova/workspace/personal/krispo95.github.io"],
-      "port": 4178
+      "runtimeArgs": ["-m", "http.server", "4179", "--bind", "127.0.0.1", "--directory", "/Users/kristinastupnikova/workspace/personal/krispo95.github.io"],
+      "port": 4179
     }
   ]
 }

@@ -80,13 +80,15 @@ A clip path takes the `box-shadow` with it, so the shadow is a
 `filter: drop-shadow` on `.avatar` while the clip sits on the `<img>` inside.
 A `url()` clip cannot be animated between shapes, so the old morph is gone.
 
-The crop is centred on the face and exported at 560x540, the shape's own ratio.
-A cold window frame sits along the left of the source photo; at this crop width
-the outline clips it away entirely, which is worth re-checking if the crop ever
-widens — through the mask it is gone, in the raw rectangle it is not.
+Exported at 560x540, the shape's own ratio.
 
-To swap it, crop to 1.037:1 centred on the face, export at 560px wide, keep the
-filename.
+A cold window frame runs down the whole left side of the source photo and there
+is no clean wall beside it to extend, so the crop starts to the right of it —
+left edge at x=1070 in the original. That is what sets how far the crop can
+zoom out: widen it leftwards and the window comes back inside the outline.
+Check that against the mask, not the rectangle; the two disagree.
+
+To swap it, crop to 1.037:1, export at 560px wide, keep the filename.
 
 ## Screenshots
 
