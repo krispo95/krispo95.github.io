@@ -15,7 +15,8 @@ const STRINGS = {
     "apps.title": "My apps",
     "formora.sub": "A smart body tracker",
     "formora.note": "The scale isn't the whole story",
-    "formora.text": "I built it for women first. The body changes over the month, and there is no sense in being upset by every new number on the scale. Weight, measurements and progress photos live together here, and you can put shots from different periods side by side. Sometimes the weight holds while the volumes go down — the scale will not show you that. It works for men too; the cycle part can just be left off.",
+    "formora.text": "I made it for women first. As a woman I know how much the body can change over a month, and how much it matters to take that into account — so as not to be upset by every new number on the scale.",
+    "formora.text2": "You can track weight and measurements, keep progress photos and compare shots from different periods easily. And it helps you notice changes the scale does not always show: the weight barely moves while the volumes go down. Useful for men too — the menstrual cycle feature can simply be left off.",
     "formora.legalAria": "Formora — privacy policy and terms",
     "medistory.sub": "Everything you need to tell the doctor",
     "medistory.note": "Ten minutes with the doctor",
@@ -25,7 +26,7 @@ const STRINGS = {
     "about.title": "About me",
     "about.text": "I'm Kristina. Everything in these apps was made by one person: the design, the code, the App Store page, the replies to support mail. If something is broken, you are writing to the person who broke it.",
     "connect.title": "Come say hi",
-    "connect.sub": "I post what I'm working on there.",
+    "connect.sub": "I'd be really glad if you tried them and told me how it went.",
     "foot": "Made by Kristina Stupnikova"
   },
   ru: {
@@ -41,7 +42,8 @@ const STRINGS = {
     "apps.title": "Мои приложения",
     "formora.sub": "Умный трекер тела",
     "formora.note": "Не только цифра на весах",
-    "formora.text": "Делала в первую очередь для женщин. Тело меняется в течение месяца, и расстраиваться из-за каждой новой цифры на весах не стоит. Здесь рядом лежат вес, обхваты и фотографии прогресса, а снимки за разные периоды можно сравнить. Бывает, что вес стоит, а объёмы уходят, — на весах этого не видно. Мужчинам тоже подойдёт: функцию про цикл можно не включать.",
+    "formora.text": "Разрабатывала в первую очередь для женщин. Как женщина, я знаю, насколько тело может меняться в течение месяца и как важно учитывать эти изменения, чтобы не расстраиваться из-за каждой новой цифры на весах.",
+    "formora.text2": "Можно отслеживать вес и замеры, хранить фотографии прогресса и удобно сравнивать снимки за разные периоды. А ещё приложение помогает замечать изменения, которые не всегда видны на весах: например, вес почти не меняется, а объёмы уменьшаются. Мужчинам тоже будет полезно, просто функцию, связанную с менструальным циклом, можно не включать.",
     "formora.legalAria": "Formora — политика конфиденциальности и условия",
     "medistory.sub": "Всё, что нужно рассказать врачу",
     "medistory.note": "На приёме десять минут",
@@ -51,7 +53,7 @@ const STRINGS = {
     "about.title": "Обо мне",
     "about.text": "Я Кристина. Всё в этих приложениях сделано одним человеком: дизайн, код, страница в App Store, ответы в поддержке. Если что-то сломалось — вы пишете прямо тому, кто это сломал.",
     "connect.title": "Заходите в гости",
-    "connect.sub": "Показываю там, над чем работаю.",
+    "connect.sub": "Буду очень рада, если попробуете и поделитесь впечатлениями.",
     "foot": "Сделано Кристиной Ступниковой"
   }
 };
