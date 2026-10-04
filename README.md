@@ -43,6 +43,23 @@ both apps); `ct` is the campaign token that separates the two audiences in App
 Analytics. The links carry no country code, so Apple sends each visitor to
 their own storefront.
 
+## Language in the link
+
+`?lang=ru` or `?lang=en` sets the language on arrival, which is how the two
+Instagram profiles point here:
+
+- https://krispo95.github.io/?lang=ru
+- https://krispo95.github.io/?lang=en
+
+The parameter wins over the visitor's saved choice and over their browser
+language — it is the author of the link deciding. Case and a region subtag are
+tolerated (`RU-ru` works), anything unrecognised falls through to the normal
+order: saved choice, then browser language, then English. Clicking the switch
+rewrites the parameter with `history.replaceState`, so a copied URL carries
+what is on screen; other query parameters are left alone.
+
+`<link rel="alternate" hreflang>` declares both variants plus an `x-default`.
+
 ## Editing the copy
 
 Every translatable string sits in `index.html` with a `data-i18n="key"` attribute

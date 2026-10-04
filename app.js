@@ -64,7 +64,23 @@ const STRINGS = {
 
 const STORAGE_KEY = "ks-lang";
 
+/* ?lang=ru in the address bar wins over everything else: it is the author
+   of the link saying which language this visitor should land in, which is
+   how the two Instagram profiles point here. */
+function langFromUrl() {
+  try {
+    const raw = new URLSearchParams(location.search).get("lang");
+    if (!raw) return null;
+    const lang = raw.trim().toLowerCase().slice(0, 2);
+    return STRINGS[lang] ? lang : null;
+  } catch (e) {
+    return null;
+  }
+}
+
 function pickInitialLang() {
+  const fromUrl = langFromUrl();
+  if (fromUrl) return fromUrl;
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved && STRINGS[saved]) return saved;
@@ -111,7 +127,15 @@ function applyLang(lang) {
 }
 
 for (const btn of document.querySelectorAll(".lang__btn")) {
-  btn.addEventListener("click", () => applyLang(btn.dataset.lang));
+  btn.addEventListener("click", () => {
+    applyLang(btn.dataset.lang);
+    // keep the address bar honest, so a copied link carries what is on screen
+    try {
+      const url = new URL(location.href);
+      url.searchParams.set("lang", btn.dataset.lang);
+      history.replaceState(null, "", url);
+    } catch (e) { /* nothing to do */ }
+  });
 }
 
 applyLang(pickInitialLang());
