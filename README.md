@@ -9,7 +9,7 @@ Pages from `main` at the repository root.
 | File | What it is |
 | --- | --- |
 | `index.html` | The whole page. English is the source language. |
-| `styles.css` | Design tokens at the top; mobile-first, dark mode via `prefers-color-scheme`. |
+| `styles.css` | Design tokens at the top; mobile-first. Light only — there is no dark theme, by choice. |
 | `app.js` | EN/RU switch. Russian strings live in `STRINGS.ru`; the choice is kept in `localStorage`. |
 | `assets/` | Portrait, app icons, screenshots (WebP), favicon, Open Graph card. |
 
@@ -48,6 +48,16 @@ their own storefront.
 Every translatable string sits in `index.html` with a `data-i18n="key"` attribute
 and in both dictionaries in `app.js`. Change a string in **both** places —
 `index.html` is what a visitor without JavaScript sees.
+
+## Light only
+
+There is no `prefers-color-scheme: dark` block and the page declares
+`color-scheme: light`, so it stays on warm paper even when the phone is in
+dark mode. That is deliberate — don't add a dark theme back without asking.
+
+The cream is carrying a fine SVG grain (`body::before`) because flat cream
+renders as dull grey on a phone. Shadows are warm-tinted rather than grey:
+on this background a neutral grey shadow reads as dirt.
 
 ## The hero has two layouts
 

@@ -19,17 +19,20 @@
      the heart, focus rings. Nothing structural is coloured. */
   --accent: #B5847C;
 
-  --rose-a: #F8EFEB;   /* Formora card */
-  --rose-b: #FDF9F6;
-  --sage-a: #EDF1ED;   /* Medistory card */
-  --sage-b: #FBF9F5;
+  --rose-a: #F9ECE6;   /* Formora card */
+  --rose-b: #FDF8F4;
+  --sage-a: #E6EDE7;   /* Medistory card */
+  --sage-b: #FBF9F4;
 
   --btn: #1D1A18;
   --btn-text: #FFFFFF;
 
-  --shadow-sm: 0 1px 2px rgba(29, 26, 24, .04), 0 6px 18px rgba(29, 26, 24, .04);
-  --shadow-md: 0 2px 6px rgba(29, 26, 24, .05), 0 18px 44px rgba(29, 26, 24, .08);
-  --shadow-phone: 0 10px 30px rgba(29, 26, 24, .16);
+  /* Warm-tinted and long rather than grey and tight — on cream, a neutral
+     grey shadow reads as dirt. The inset line is a lit top edge. */
+  --shadow-sm: 0 1px 2px rgba(74, 48, 38, .04), 0 8px 24px rgba(74, 48, 38, .05);
+  --shadow-md: 0 2px 8px rgba(74, 48, 38, .05), 0 22px 56px rgba(74, 48, 38, .09);
+  --shadow-phone: 0 12px 34px rgba(74, 48, 38, .18);
+  --lit: inset 0 1px 0 rgba(255, 255, 255, .8);
 
   --radius-card: 28px;
   --radius-tile: 17px;
@@ -40,33 +43,10 @@
   --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
   --font-script: "Caveat", "Bradley Hand", cursive;
 
+  color-scheme: light;
+
   --aurora-1: rgba(205, 165, 154, .26);
   --aurora-2: rgba(172, 184, 170, .20);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #141210;
-    --bg-2: #1A1714;
-    --surface: #201D1A;
-    --surface-2: #201D1ACC;
-    --text: #F3EFEA;
-    --muted: #A69D94;
-    --line: rgba(255, 255, 255, .10);
-    --line-strong: rgba(255, 255, 255, .18);
-    --accent: #D9A79E;
-    --rose-a: #2A2220;
-    --rose-b: #1E1B19;
-    --sage-a: #1C2320;
-    --sage-b: #1A1917;
-    --btn: #F3EFEA;
-    --btn-text: #1D1A18;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .35);
-    --shadow-md: 0 2px 6px rgba(0, 0, 0, .3), 0 18px 44px rgba(0, 0, 0, .35);
-    --shadow-phone: 0 10px 30px rgba(0, 0, 0, .5);
-    --aurora-1: rgba(217, 167, 158, .15);
-    --aurora-2: rgba(140, 160, 148, .11);
-  }
 }
 
 * { box-sizing: border-box; }
@@ -85,6 +65,19 @@ body {
 }
 
 .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* A fine grain over everything. Flat cream renders as dull grey on a phone
+   screen; a little noise makes it read as paper instead. One repeating
+   160px tile, so it costs nothing to scroll. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.1'/%3E%3C/svg%3E");
+}
+
 
 a { color: inherit; }
 
@@ -167,14 +160,23 @@ main {
 }
 
 .section-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: 13.5px;
   font-weight: 500;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--muted);
   margin: 34px 0 14px;
   scroll-margin-top: 20px;
+}
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
 }
 .section-title--flush { margin-top: 0; }
 
@@ -189,7 +191,7 @@ main {
   overflow: hidden;
   background: var(--bg-2);
   border-radius: 56% 44% 47% 53% / 46% 52% 48% 54%;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 0 0 7px rgba(255, 255, 255, .6), var(--shadow-md);
   animation: morph 14s ease-in-out infinite;
 }
 .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -269,7 +271,8 @@ main {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-tile);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), var(--lit);
+  background-image: linear-gradient(170deg, #fff, #FDFAF8);
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s;
 }
 .socials__tile svg { width: 23px; height: 23px; }
@@ -292,7 +295,7 @@ main {
   border: 1px solid var(--line);
   padding: 22px 20px 0;
   margin: 0 0 16px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), var(--lit);
 }
 
 .card--formora  { background: linear-gradient(165deg, var(--rose-a), var(--rose-b) 64%, var(--surface)); }
@@ -310,7 +313,7 @@ main {
   height: 58px;
   border-radius: 15px;
   border: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), var(--lit);
   background: #fff;
 }
 
@@ -323,7 +326,7 @@ main {
   letter-spacing: -.01em;
 }
 
-.card__sub { margin: 3px 0 0; font-size: 14.5px; color: var(--muted); }
+.card__sub { margin: 3px 0 0; font-size: 14px; color: var(--muted); text-wrap: balance; }
 
 .card__note {
   display: none;
@@ -351,7 +354,7 @@ main {
   text-decoration: none;
   padding: 10px 18px 10px 15px;
   border-radius: 14px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), var(--lit);
   transition: transform .18s ease, box-shadow .18s ease;
 }
 .appstore:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
@@ -370,7 +373,7 @@ main {
   background: var(--surface);
   border: 1px solid var(--line);
   color: var(--text);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), var(--lit);
   transition: transform .18s ease, box-shadow .18s ease;
 }
 .ghost svg { width: 19px; height: 19px; }
@@ -404,7 +407,7 @@ main {
   border-radius: var(--radius-card);
   padding: 22px 20px;
   margin: 26px 0 0;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), var(--lit);
   scroll-margin-top: 20px;
 }
 .about p { margin: 0; color: var(--muted); text-wrap: pretty; }
@@ -417,6 +420,7 @@ main {
   border-radius: var(--radius-card);
   border: 1px solid var(--line);
   background: linear-gradient(150deg, var(--rose-b), var(--sage-b));
+  box-shadow: var(--shadow-sm), var(--lit);
   text-align: center;
   scroll-margin-top: 20px;
 }
