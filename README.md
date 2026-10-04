@@ -69,9 +69,18 @@ wide layout flips it with `order`, so there is one piece of markup, not two.
 ## The portrait
 
 `assets/kristina.webp` is a 400x400 square crop of a phone photo, shown through
-an asymmetric `border-radius` blob that morphs slowly between two states. The
-shape is done with `border-radius` and not `clip-path` on purpose: a clip would
-cut away the white mat and the shadow with it, and these values can animate.
+`#blobShape` — a clip path traced from an outline Kristina drew. The trace ran
+the drawing through boundary following, Ramer-Douglas-Peucker down to 49 points
+and a Catmull-Rom smoothing pass; the result is in the SVG sprite in
+`index.html`, in `objectBoundingBox` units, so it scales with the element.
+
+The shape is 1.037:1 — give the element that ratio or it comes out squashed.
+
+A clip path takes the `box-shadow` with it, so the shadow is a
+`filter: drop-shadow` on the outer `.avatar` and the white mat is
+`.avatar__mat`, an inner element clipped to the same outline with padding
+showing through. Both the mat and the `<img>` carry the clip. A `url()` clip
+cannot be animated between shapes, so the old morph is gone.
 
 The crop sits right of the face's centre — further left and a cold window frame
 comes into the picture and fights the warm page. It is head-and-shoulders

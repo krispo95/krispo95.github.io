@@ -184,21 +184,31 @@ main {
 
 .hero { padding: 26px 0 4px; text-align: center; }
 
+/* The outline is traced from a shape Kristina drew, so it is a clip path
+   rather than border-radius. A clip removes the box-shadow with everything
+   else, so the drop shadow moves to a filter on the outer box and the white
+   mat becomes an inner element clipped to the same outline. */
 .avatar {
-  width: 132px;
-  height: 132px;
+  width: 140px;
+  height: 135px;          /* the traced shape is 1.037:1 — don't square it */
   margin: 0 auto;
-  overflow: hidden;
-  background: var(--bg-2);
-  border-radius: 64% 36% 50% 50% / 56% 40% 60% 44%;
-  box-shadow: 0 0 0 7px rgba(255, 255, 255, .6), var(--shadow-md);
-  animation: morph 14s ease-in-out infinite;
+  filter: drop-shadow(0 14px 28px rgba(74, 48, 38, .16));
 }
-.avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-@keyframes morph {
-  0%, 100% { border-radius: 64% 36% 50% 50% / 56% 40% 60% 44%; }
-  50%      { border-radius: 56% 44% 58% 42% / 48% 54% 46% 52%; }
+.avatar__mat {
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  background: #fff;
+  -webkit-clip-path: url(#blobShape);
+  clip-path: url(#blobShape);
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  -webkit-clip-path: url(#blobShape);
+  clip-path: url(#blobShape);
 }
 
 .note {
@@ -496,7 +506,7 @@ main {
 
   .avatar {
     width: 272px;
-    height: 272px;
+    height: 262px;
     margin: 0;
   }
 
