@@ -185,22 +185,14 @@ main {
 .hero { padding: 26px 0 4px; text-align: center; }
 
 /* The outline is traced from a shape Kristina drew, so it is a clip path
-   rather than border-radius. A clip removes the box-shadow with everything
-   else, so the drop shadow moves to a filter on the outer box and the white
-   mat becomes an inner element clipped to the same outline. */
+   rather than border-radius. A clip takes the box-shadow with it, so the
+   shadow is a filter on the outer box. */
 .avatar {
-  width: 140px;
-  height: 135px;          /* the traced shape is 1.037:1 — don't square it */
+  width: 280px;
+  height: 270px;          /* the traced shape is 1.037:1 — don't square it */
+  max-width: 100%;
   margin: 0 auto;
-  filter: drop-shadow(0 14px 28px rgba(74, 48, 38, .16));
-}
-.avatar__mat {
-  width: 100%;
-  height: 100%;
-  padding: 6px;
-  background: #fff;
-  -webkit-clip-path: url(#blobShape);
-  clip-path: url(#blobShape);
+  filter: drop-shadow(0 16px 32px rgba(74, 48, 38, .14));
 }
 .avatar img {
   width: 100%;
@@ -495,7 +487,7 @@ main {
 
   .hero {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 272px;
+    grid-template-columns: minmax(0, 1fr) 330px;
     align-items: center;
     gap: 36px;
     text-align: left;
@@ -505,8 +497,8 @@ main {
   .hero__photo { order: 2; }
 
   .avatar {
-    width: 272px;
-    height: 262px;
+    width: 330px;
+    height: 318px;
     margin: 0;
   }
 

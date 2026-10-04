@@ -77,16 +77,16 @@ and a Catmull-Rom smoothing pass; the result is in the SVG sprite in
 The shape is 1.037:1 — give the element that ratio or it comes out squashed.
 
 A clip path takes the `box-shadow` with it, so the shadow is a
-`filter: drop-shadow` on the outer `.avatar` and the white mat is
-`.avatar__mat`, an inner element clipped to the same outline with padding
-showing through. Both the mat and the `<img>` carry the clip. A `url()` clip
-cannot be animated between shapes, so the old morph is gone.
+`filter: drop-shadow` on `.avatar` while the clip sits on the `<img>` inside.
+A `url()` clip cannot be animated between shapes, so the old morph is gone.
 
-The crop sits right of the face's centre — further left and a cold window frame
-comes into the picture and fights the warm page. It is head-and-shoulders
-because at 132px anything wider loses the face.
+The crop is centred on the face and exported at 560x540, the shape's own ratio.
+A cold window frame sits along the left of the source photo; at this crop width
+the outline clips it away entirely, which is worth re-checking if the crop ever
+widens — through the mask it is gone, in the raw rectangle it is not.
 
-To swap it, crop square around the face, export at 400px, keep the filename.
+To swap it, crop to 1.037:1 centred on the face, export at 560px wide, keep the
+filename.
 
 ## Screenshots
 
