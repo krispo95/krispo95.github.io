@@ -49,6 +49,13 @@ Every translatable string sits in `index.html` with a `data-i18n="key"` attribut
 and in both dictionaries in `app.js`. Change a string in **both** places —
 `index.html` is what a visitor without JavaScript sees.
 
+## The hero has two layouts
+
+On a phone it is one centred column: round photo, then the name. From 780px
+it becomes two, type left and a large photo right, as in the reference design.
+The DOM order is photo-then-text because that is what the phone needs; the
+wide layout flips it with `order`, so there is one piece of markup, not two.
+
 ## The portrait
 
 `assets/kristina.webp` is a 400x400 square crop of a phone photo, shown through

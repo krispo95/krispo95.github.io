@@ -73,13 +73,17 @@
 <main id="top">
 
   <section class="hero">
-    <div class="avatar">
-      <img src="assets/kristina.webp" alt="Kristina Stupnikova" width="400" height="400" fetchpriority="high" decoding="async">
+    <div class="hero__photo">
+      <div class="avatar">
+        <img src="assets/kristina.webp" alt="Kristina Stupnikova" width="400" height="400" fetchpriority="high" decoding="async">
+      </div>
+      <p class="note">
+        <svg class="note__arrow" aria-hidden="true"><use href="#i-squiggle"/></svg>
+        <span data-i18n="hero.note">Thanks for being here!</span> ♡
+      </p>
     </div>
-    <p class="note">
-      <svg class="note__arrow" aria-hidden="true"><use href="#i-squiggle"/></svg>
-      <span data-i18n="hero.note">Thanks for being here!</span> ♡
-    </p>
+
+    <div class="hero__text">
     <h1 class="hero__name">Kristina<br>Stupnikova</h1>
     <p class="hero__role" data-i18n="hero.role">Indie iOS developer</p>
     <p class="hero__tagline" data-i18n="hero.tagline">I build simple, thoughtful apps for health &amp; everyday life.</p>
@@ -90,6 +94,7 @@
       <li><a href="https://github.com/krispo95" target="_blank" rel="me noopener"><span class="socials__tile"><svg aria-hidden="true"><use href="#i-github"/></svg></span>GitHub</a></li>
       <li><a href="mailto:krispo.dev@gmail.com"><span class="socials__tile"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><span data-i18n="social.contact">Contact</span></a></li>
     </ul>
+    </div>
   </section>
 
   <h2 class="section-title" id="apps" data-i18n="apps.title">My apps</h2>

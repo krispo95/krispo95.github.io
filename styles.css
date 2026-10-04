@@ -456,7 +456,13 @@ main {
   .card { padding: 26px 26px 0; }
   .card__head { grid-template-columns: auto 1fr auto; }
   .card__note { display: block; }
-  .socials { gap: 12px; }
+  /* Below this the tiles fill the width; above it they would just drift
+     apart, so pin them to a fixed size and centre the row. */
+  .socials {
+    grid-template-columns: repeat(4, 68px);
+    justify-content: center;
+    gap: 12px;
+  }
   .about, .connect { padding: 26px; }
 }
 
@@ -464,4 +470,47 @@ main {
   :root { --gutter: 24px; }
   .hero { padding-top: 40px; }
   .shots { height: 250px; }
+}
+
+/* Past this width the hero stops being a centred column and becomes
+   two: type on the left, a large organic photo on the right. The DOM
+   order stays photo-then-text, which is what a phone wants; `order`
+   flips it here. */
+@media (min-width: 780px) {
+  :root { --maxw: 720px; }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 272px;
+    align-items: center;
+    gap: 36px;
+    text-align: left;
+    padding: 48px 0 8px;
+  }
+  .hero__text  { order: 1; }
+  .hero__photo { order: 2; }
+
+  .avatar {
+    width: 272px;
+    height: 272px;
+    margin: 0;
+  }
+
+  .note {
+    text-align: right;
+    margin: 16px 0 0;
+    transform: rotate(-1.5deg);
+  }
+  .note__arrow { transform: scaleX(-1) rotate(-26deg); }
+
+  .hero__name { font-size: 56px; }
+  .hero__tagline { margin-left: 0; }
+
+  /* Keep the tiles packed to the left instead of spread across the
+     whole text column. */
+  .socials {
+    grid-template-columns: repeat(4, 68px);
+    justify-content: start;
+    gap: 10px;
+  }
 }
