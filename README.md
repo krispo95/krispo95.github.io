@@ -124,8 +124,9 @@ shows about 580 source pixels, so 700 leaves room to spare. The uniform height
 matters: it gives every image the same aspect ratio, so switching language
 cannot reflow the card.
 
-To refresh them, re-export at 440x700 from the top, or the phone frames will
-change shape.
+To refresh them, re-export at 440x700 from the top. They are shown bare —
+rounded corners and a shadow, no device bezel — so each screenshot's own top
+edge is what the visitor sees.
 
 ## Cache: bump `?v=` when you change CSS or JS
 
