@@ -134,9 +134,16 @@ included. For ten minutes after a deploy a returning visitor keeps the old
 copy — and can end up with new HTML against a stale `app.js`, which breaks in
 confusing ways rather than just looking out of date.
 
-So `index.html` links `styles.css?v=N` and `app.js?v=N`. **Raise N whenever you
-change either file.** A new query string is a new URL, so the moment the HTML
-refreshes it pulls the matching assets instead of the cached ones.
+So every asset URL in `index.html` carries `?v=N` — stylesheet, script,
+images, favicon, the Open Graph card, and the `data-src-en` / `data-src-ru`
+pairs the language switch uses. **Raise N whenever you change any of them.** A
+new query string is a new URL, so the moment the HTML refreshes it pulls the
+new file instead of the cached one.
+
+Images matter most here, because their filenames never change. Replace
+`kristina.webp` without bumping N and a returning visitor keeps the old
+portrait for ten minutes while the file on the server is already the new one —
+which looks exactly like a deploy that failed.
 
 If a change does not show up on the live page, that is this cache, not a broken
 deploy. Confirm with `curl https://krispo95.github.io/app.js | grep ...` — if
