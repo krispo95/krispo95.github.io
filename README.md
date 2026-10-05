@@ -119,10 +119,11 @@ languages, or the switch looks like a bug.
 `<app>-1` is the front phone, `<app>-2` the one behind it.
 
 Each one is resized to 440px wide and **cropped to 700px tall**. Only the top of
-a screenshot is ever on screen — the card clips the rest — and the widest layout
-shows about 580 source pixels, so 700 leaves room to spare. The uniform height
-matters: it gives every image the same aspect ratio, so switching language
-cannot reflow the card.
+a screenshot is ever on screen — the card clips the rest. At the current size
+the widest layout reveals about 610 of those pixels, so there is roughly 90 to
+spare; make the phones taller than this and the crop's bottom edge starts to
+show. The uniform height matters too: it gives every image the same aspect
+ratio, so switching language cannot reflow the card.
 
 To refresh them, re-export at 440x700 from the top. The bezel around them is
 2px of `--text`, enough to contain the screenshot without pretending to be a

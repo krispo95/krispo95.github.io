@@ -385,16 +385,14 @@ main {
 /* Screenshots bleed off the bottom edge of the card. */
 .shots {
   position: relative;
-  height: clamp(176px, 48vw, 228px);
+  height: clamp(206px, 56vw, 262px);
   margin-top: 20px;
 }
 .phone {
   position: absolute;
   top: 0;
-  width: clamp(138px, 41%, 178px);
-  padding: 2px;                 /* a hairline bezel, not a device mockup */
-  background: var(--text);      /* the page's ink, not a separate black */
-  border-radius: 21px;
+  width: clamp(158px, 48%, 208px);
+  border-radius: 19px;
   box-shadow: var(--shadow-phone);
 }
 .phone img { display: block; width: 100%; height: auto; border-radius: 19px; }
@@ -475,7 +473,7 @@ main {
 @media (min-width: 720px) {
   :root { --gutter: 24px; }
   .hero { padding-top: 40px; }
-  .shots { height: 250px; }
+  .shots { height: 290px; }
 }
 
 /* Past this width the hero stops being a centred column and becomes
