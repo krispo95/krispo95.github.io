@@ -109,9 +109,14 @@ To swap it, crop to 1.037:1, export at 560px wide, keep the filename.
 
 ## Screenshots
 
-Two per app per language, in `assets/<app>-<n>.<lang>.webp`, taken from the
-App Store screenshot folders of each app (`.../screenshots/en|ru/`) and showing
-the same two screens in both languages.
+Two per app per language, in `assets/<app>-<n>.<lang>.webp`.
+
+Formora's come from `formora pics/marketing screens/shots/{en,ru}/`: `1.png`
+is the weight chart with the cycle overlay switched on, `2.png` the home
+screen. Medistory's come from its `screenshots/{en,ru}/`. Same screen in both
+languages, or the switch looks like a bug.
+
+`<app>-1` is the front phone, `<app>-2` the one behind it.
 
 Each one is resized to 440px wide and **cropped to 700px tall**. Only the top of
 a screenshot is ever on screen — the card clips the rest — and the widest layout
